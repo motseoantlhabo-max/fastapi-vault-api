@@ -1,17 +1,23 @@
-"""Pydantic v2 schemas for authentication."""
+"""
+Pydantic schemas for authentication.
+"""
 
 from pydantic import BaseModel
 
 
 class Token(BaseModel):
-    """Response returned by POST /auth/login."""
+    """
+    JWT access token returned after successful login.
+    """
 
     access_token: str
     token_type: str = "bearer"
 
 
 class TokenPayload(BaseModel):
-    """Decoded JWT payload shape."""
+    """
+    Structure of the JWT payload.
+    """
 
     sub: str | None = None
     exp: int | None = None
